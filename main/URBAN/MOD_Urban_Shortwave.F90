@@ -335,7 +335,7 @@ CONTAINS
         albu(2)      ! Urban overall albedo [-]
 
 !-------------------------- Local Variables ----------------------------
-   real(r16),parameter :: DD1=1.0_r16 !quad accuracy real number
+   real(r8),parameter :: DD1=1.0_r8 !quad accuracy real number
 
    real(r8) :: &
         W,          &! Urban ground average width
