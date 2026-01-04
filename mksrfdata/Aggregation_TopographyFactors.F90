@@ -241,7 +241,7 @@ SUBROUTINE Aggregation_TopographyFactors ( &
                count_pixels = 0
 
                DO i = 1, num_pixels
-                  IF ((isnan(tea_f_one(i))).or.(isnan(tea_b_one(i)))) THEN
+                  IF ((isnan_ud(tea_f_one(i))).or.(isnan_ud(tea_b_one(i)))) THEN
                      sf_one(i) = 1    ! Not consider the effect of casting shadows
                   ELSE
                      IF (tea_f_one(i)>1)  tea_f_one(i) = 1

@@ -1,0 +1,44 @@
+# =======================================================
+# CUDA Fortran Configuration for CoLM GPU Version
+# Using NVIDIA HPC SDK (nvfortran)
+# 
+
+  FF = nvfortran -mp
+   
+  NETCDF_LIB = /usr/lib/x86_64-linux-gnu
+  NETCDF_INC = /usr/include
+  CUDA_LIB = /usr/local/cuda/lib64
+  CUDA_INC = /usr/local/cuda/include
+
+  MOD_CMD = -module
+
+# CUDA Fortran compilation options
+  FOPTS = -r8 -Mfree -g -C -Mbounds -Mchkstk \
+          -Ktrap=fp -Mbacktrace -Mpreprocess \
+          -Mextend -cuda -gpu=cc70,cc75,cc80 \
+          -Mcuda=charstring,ptxinfo
+
+  INCLUDE_DIR = -I../include -I../share -I../mksrfdata -I../mkinidata -I../main -I$(NETCDF_INC) -I$(CUDA_INC)
+  LDFLAGS = -L$(NETCDF_LIB) -lnetcdff -lnetcdf -llapack -lblas -L$(CUDA_LIB) -lcudart -lcublas -lcusolver
+
+#============================================================
+# CaMa-Flood Mkinclude (CUDA version)
+
+RM = /bin/rm -f
+CP = /bin/cp
+#----
+# Pre-Prosessing options for CUDA
+# DCUDA=-DUseCUDA: activate CUDA compilation
+# DMPI=-DUseMPI: activate when MPI parallelization is used
+# DCDF=-DUseCDF: activate when using netCDF
+#----
+DCUDA=-DUseCUDA
+#DMPI=-DUseMPI
+DCDF=-DUseCDF -DUseCDF_CMF
+CFLAGS=$(DCUDA) $(DMPI) $(DCDF) 
+#----
+FCMP = nvfortran -mp
+FC   = nvfortran 
+
+LFLAGS = -cuda -gpu=cc70,cc75,cc80
+FFLAGS = -O3 -r8 -Mfree -Mpreprocess -cuda -gpu=cc70,cc75,cc80

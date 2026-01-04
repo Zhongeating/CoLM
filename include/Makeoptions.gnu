@@ -1,0 +1,37 @@
+# =======================================================
+# mpif90 - gfortran
+#
+
+  FF = mpifort
+
+  NETCDF_LIB = /usr/local/lib
+  NETCDF_INC = /usr/local/include
+
+  MOD_CMD = -module 
+
+  FOPTS = -O2 -traceback -r8 -Mfreeform -Minfo=accel
+
+  INCLUDE_DIR = -I$(NETCDF_INC)
+  LDFLAGS = -L$(NETCDF_LIB) -lnetcdff -lnetcdf -llapack -lblas
+
+#============================================================
+# CaMa-Flood Mkinclude (for Linux, gfortran)
+
+RM = /bin/rm -f
+CP = /bin/cp
+#----
+# Pre-Prosessing options
+# DMPI=-DUseMPI: activate when MPI parallelization is used
+# DCDF=-DUseCDF: activate when using netCDF, comment out when not needed
+# DATM=-DNoAtom: activate when OMP ATOMIC calculation should be avoided (bit identical simulation)
+#----
+#DMPI=-DUseMPI
+DCDF=-DUseCDF -DUseCDF_CMF
+#DATM=-DNoAtom
+CFLAGS=$(DMPI) $(DCDF) $(DATM)
+#----
+FCMP = /usr/bin/gfortran -fopenmp
+FC   = /usr/bin/gfortran
+
+LFLAGS =
+FFLAGS = -O3 -Wall -cpp -free -fimplicit-none -fbounds-check -fbacktrace

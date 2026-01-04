@@ -362,9 +362,9 @@ CONTAINS
    real(r8), parameter :: D10=10.0_r8            !double accuracy real number
    real(r8), parameter :: D16=16.0_r8            !double accuracy real number
    real(r8), parameter :: DH=0.5_r8              !quad accuracy real number
-   real(r16),parameter :: DDH=0.5_r16            !quad accuracy real number
-   real(r16),parameter :: DD0=0.0_r16            !quad accuracy real number
-   real(r16),parameter :: DD1=1.0_r16            !quad accuracy real number
+   real(r8),parameter :: DDH=0.5_r8            !quad accuracy real number
+   real(r8),parameter :: DD0=0.0_r8            !quad accuracy real number
+   real(r8),parameter :: DD1=1.0_r8            !quad accuracy real number
    real(r8) ,parameter :: pi=3.14159265358979323846_r8 !pi
 
    integer  :: ib                        !band index 1:vis 2:nir
@@ -1115,10 +1115,10 @@ CONTAINS
 
    IMPLICIT NONE
 
-   real(r16), parameter :: DDH = 0.50_r16 !128-bit accuracy real
-   real(r16), parameter :: DD1 = 1.0_r16  !128-bit accuracy real
-   real(r16), parameter :: DD2 = 2.0_r16  !128-bit accuracy real
-   real(r16) :: tau ! transmittance
+   real(r8), parameter :: DDH = 0.50_r8 !128-bit accuracy real
+   real(r8), parameter :: DD1 = 1.0_r8  !128-bit accuracy real
+   real(r8), parameter :: DD2 = 2.0_r8  !128-bit accuracy real
+   real(r8) :: tau ! transmittance
 
       tee = DDH*(DD1/tau/tau-(DD1/tau/tau+DD2/tau)*exp(-DD2*tau))
 
@@ -1218,7 +1218,7 @@ CONTAINS
    real(r8) , parameter :: D4  = 4.0_r8     !64-bit real number
    real(r8) , parameter :: D6  = 6.0_r8     !64-bit real number
    real(r8) , parameter :: DH  = 0.5_r8     !64-bit real number
-   real(r16), parameter :: DD1 = 1.0_r16    !128-bit real number
+   real(r8), parameter :: DD1 = 1.0_r8    !128-bit real number
 
    real(r8) , parameter :: pi  = 3.14159265358979323846_R8  !pi
 !-----------------------------------------------------------------------
@@ -1336,13 +1336,13 @@ CONTAINS
    real(r8) , parameter :: D0   = 0.0_r8   !64-bit real number
    real(r8) , parameter :: D1   = 1.0_r8   !64-bit real number
 
-   real(r16), parameter :: DD1  = 1.0_r16  !128-bit real number
-   real(r16), parameter :: DD2  = 2.0_r16  !128-bit real number
-   real(r16), parameter :: DD3  = 3.0_r16  !128-bit real number
-   real(r16), parameter :: DD4  = 4.0_r16  !128-bit real number
-   real(r16), parameter :: DD9  = 9.0_r16  !128-bit real number
-   real(r16), parameter :: DD10 = 10.0_r16 !128-bit real number
-   real(r16), parameter :: DDH  = 0.5_r16  !128-bit real number
+   real(r8), parameter :: DD1  = 1.0_r8  !128-bit real number
+   real(r8), parameter :: DD2  = 2.0_r8  !128-bit real number
+   real(r8), parameter :: DD3  = 3.0_r8  !128-bit real number
+   real(r8), parameter :: DD4  = 4.0_r8  !128-bit real number
+   real(r8), parameter :: DD9  = 9.0_r8  !128-bit real number
+   real(r8), parameter :: DD10 = 10.0_r8 !128-bit real number
+   real(r8), parameter :: DDH  = 0.5_r8  !128-bit real number
 
 !----------------------------------------------------------------------
 ! single scattering terms for sphere with overlap corrections to path

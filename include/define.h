@@ -8,9 +8,9 @@
 ! 2. Land subgrid type classification:
 !    Select one of the following options.
 #undef LULC_USGS
-#undef LULC_IGBP
+#define LULC_IGBP
 #undef LULC_IGBP_PFT
-#define LULC_IGBP_PC
+#undef LULC_IGBP_PC
 
 ! 2.1 3D Urban model (put it temporarily here):
 #undef URBAN_MODEL
@@ -24,9 +24,9 @@
 #endif
 
 ! 3. If defined, debug information is output.
-#define CoLMDEBUG
+#undef CoLMDEBUG
 ! 3.1 If defined, range of variables is checked.
-#define RangeCheck
+#undef RangeCheck
 ! 3.1 If defined, surface data in vector is mapped to gridded data for checking.
 #undef SrfdataDiag
 
@@ -39,8 +39,8 @@
 
 ! 5. Hydrological process options.
 ! 5.1 Two soil hydraulic models can be used.
-#undef   Campbell_SOIL_MODEL
-#define  vanGenuchten_Mualem_SOIL_MODEL
+#define   Campbell_SOIL_MODEL
+#undef  vanGenuchten_Mualem_SOIL_MODEL
 ! 5.2 If defined, lateral flow is modeled.
 #define CatchLateralFlow
 !    Conflicts :
@@ -57,7 +57,7 @@
 #undef CaMa_Flood
 #endif
 
-#define GridRiverLakeFlow
+#undef GridRiverLakeFlow
 !    Conflicts :
 #if (defined CATCHMENT || defined SinglePoint)
 #undef GridRiverLakeFlow
