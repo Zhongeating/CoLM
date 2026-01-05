@@ -1,0 +1,642 @@
+# ============================================================================
+# Precise module dependencies for CoLM
+# Auto-generated on Mon Jan  5 05:41:35 AM UTC 2026
+# ============================================================================
+
+# Shared modules dependencies
+.bld/MOD_5x5DataReadin.o: share/MOD_5x5DataReadin.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Block.o: share/MOD_Block.F90 ${HEADER} .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_CatchmentDataReadin.o: share/MOD_CatchmentDataReadin.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_NetCDFSerial.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_DataType.o: share/MOD_DataType.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Grid.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Grid.o: share/MOD_Grid.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_IncompleteGamma.o: share/MOD_IncompleteGamma.F90 ${HEADER}
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Mesh.o: share/MOD_Mesh.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_CatchmentDataReadin.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_Pixel.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Namelist.o: share/MOD_Namelist.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_NetCDFBlock.o: share/MOD_NetCDFBlock.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_NetCDFPoint.o: share/MOD_NetCDFPoint.F90 ${HEADER} .bld/MOD_Grid.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_NetCDFSerial.o: share/MOD_NetCDFSerial.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_NetCDFVector.o: share/MOD_NetCDFVector.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_NetCDFSerial.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Pixel.o: share/MOD_Pixel.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Grid.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Pixelset.o: share/MOD_Pixelset.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Mesh.o .bld/MOD_Pixel.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Precision.o: share/MOD_Precision.F90 ${HEADER}
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_RangeCheck.o: share/MOD_RangeCheck.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SpatialMapping.o: share/MOD_SpatialMapping.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_Pixel.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SPMD_Task.o: share/MOD_SPMD_Task.F90 ${HEADER} .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_TimeManager.o: share/MOD_TimeManager.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_UserDefFun.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_UserDefFun.o: share/MOD_UserDefFun.F90 ${HEADER} .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Utils.o: share/MOD_Utils.F90 ${HEADER} .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_WorkerPushData.o: share/MOD_WorkerPushData.F90 ${HEADER} .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+# Mksrfdata modules dependencies
+.bld/MOD_AggregationRequestData.o: mksrfdata/MOD_AggregationRequestData.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Mesh.o .bld/MOD_Pixel.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_ElmVector.o: mksrfdata/MOD_ElmVector.F90 ${HEADER} .bld/MOD_DataType.o .bld/MOD_LandCrop.o .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_HRUVector.o: mksrfdata/MOD_HRUVector.F90 ${HEADER} .bld/MOD_DataType.o .bld/MOD_ElmVector.o .bld/MOD_LandCrop.o .bld/MOD_LandElm.o .bld/MOD_LandHRU.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Land2mWMO.o: mksrfdata/MOD_Land2mWMO.F90 ${HEADER} .bld/MOD_Const_LC.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_LandCrop.o: mksrfdata/MOD_LandCrop.F90 ${HEADER} .bld/MOD_5x5DataReadin.o .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_LandElm.o .bld/MOD_LandHRU.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_PixelsetShared.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_LandElm.o: mksrfdata/MOD_LandElm.F90 ${HEADER} .bld/MOD_Mesh.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_LandHRU.o: mksrfdata/MOD_LandHRU.F90 ${HEADER} .bld/MOD_AggregationRequestData.o .bld/MOD_Block.o .bld/MOD_CatchmentDataReadin.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_LandElm.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Landpatch.o: mksrfdata/MOD_LandPatch.F90 ${HEADER} .bld/MOD_AggregationRequestData.o .bld/MOD_Const_LC.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_LandElm.o .bld/MOD_LandHRU.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFVector.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_LandPFT.o: mksrfdata/MOD_LandPFT.F90 ${HEADER} .bld/MOD_5x5DataReadin.o .bld/MOD_AggregationRequestData.o .bld/MOD_Const_LC.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Land2mWMO.o .bld/MOD_LandCrop.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_LandUrban.o: mksrfdata/MOD_LandUrban.F90 ${HEADER} .bld/MOD_5x5DataReadin.o .bld/MOD_AggregationRequestData.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_LandElm.o .bld/MOD_LandHRU.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Lulcc_TransferTrace.o: mksrfdata/MOD_Lulcc_TransferTrace.F90 ${HEADER} .bld/MOD_5x5DataReadin.o .bld/MOD_AggregationRequestData.o .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Land2mWMO.o .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_MeshFilter.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFVector.o .bld/MOD_Pixel.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_RegionClip.o .bld/MOD_SPMD_Task.o .bld/MOD_SrfdataDiag.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_MeshFilter.o: mksrfdata/MOD_MeshFilter.F90 ${HEADER} .bld/MOD_AggregationRequestData.o .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_LandElm.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_PixelsetShared.o: mksrfdata/MOD_PixelsetShared.F90 ${HEADER} .bld/MOD_AggregationRequestData.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Mesh.o .bld/MOD_Pixel.o .bld/MOD_Pixelset.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_RegionClip.o: mksrfdata/MOD_RegionClip.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Pixel.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SingleSrfdata.o: mksrfdata/MOD_SingleSrfdata.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Const_LC.o .bld/MOD_Const_PFT.o .bld/MOD_Grid.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_NetCDFPoint.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Urban_Const_LCZ.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SrfdataDiag.o: mksrfdata/MOD_SrfdataDiag.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_LandCrop.o .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SrfdataRestart.o: mksrfdata/MOD_SrfdataRestart.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_NetCDFVector.o .bld/MOD_Pixelset.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+# Mkinidata modules dependencies
+.bld/MOD_DBedrockReadin.o: mkinidata/MOD_DBedrockReadin.F90 ${HEADER} .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_SingleSrfdata.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_HtopReadin.o: mkinidata/MOD_HtopReadin.F90 ${HEADER} .bld/MOD_Const_LC.o .bld/MOD_Const_PFT.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_SingleSrfdata.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Initialize.o: mkinidata/MOD_Initialize.F90 ${HEADER} .bld/MOD_Catch_BasinNetwork.o .bld/MOD_Catch_RiverLakeNetwork.o .bld/MOD_Const_LC.o .bld/MOD_Const_PFT.o .bld/MOD_Const_Physical.o .bld/MOD_CropReadin.o .bld/MOD_DataType.o .bld/MOD_DA_Vars_TimeVariables.o .bld/MOD_DBedrockReadin.o .bld/MOD_ElementNeighbour.o .bld/MOD_Grid.o .bld/MOD_Grid_Reservoir.o .bld/MOD_Grid_RiverLakeNetwork.o .bld/MOD_HtopReadin.o .bld/MOD_Hydro_SoilFunction.o .bld/MOD_IniTimeVariable.o .bld/MOD_LAIEmpirical.o .bld/MOD_LAIReadin.o .bld/MOD_LakeDepthReadin.o .bld/MOD_LandHRU.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFSerial.o .bld/MOD_NetCDFVector.o .bld/MOD_OrbCoszen.o .bld/MOD_PercentagesPFTReadin.o .bld/MOD_Pixel.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SingleSrfdata.o .bld/MOD_SoilParametersReadin.o .bld/MOD_SoilTextureReadin.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Urban_Albedo.o .bld/MOD_UrbanIniTimeVariable.o .bld/MOD_Urban_LAIReadin.o .bld/MOD_UrbanReadin.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_VicParaReadin.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_IniTimeVariable.o: mkinidata/MOD_IniTimeVariable.F90 ${HEADER} .bld/MOD_Albedo.o .bld/MOD_BGC_CNSummary.o .bld/MOD_Const_PFT.o .bld/MOD_Const_Physical.o .bld/MOD_Hydro_SoilWater.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SnowFraction.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_LakeDepthReadin.o: mkinidata/MOD_LakeDepthReadin.F90 ${HEADER} .bld/MOD_Landpatch.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_SingleSrfdata.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_PercentagesPFTReadin.o: mkinidata/MOD_PercentagesPFTReadin.F90 ${HEADER} .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SingleSrfdata.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SoilColorRefl.o: mkinidata/MOD_SoilColorRefl.F90 ${HEADER} .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SoilParametersReadin.o: mkinidata/MOD_SoilParametersReadin.F90 ${HEADER} .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_SingleSrfdata.o .bld/MOD_SoilColorRefl.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SoilTextureReadin.o: mkinidata/MOD_SoilTextureReadin.F90 ${HEADER} .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_SingleSrfdata.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_UrbanIniTimeVariable.o: mkinidata/MOD_UrbanIniTimeVariable.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_Urban_Albedo.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_UrbanReadin.o: mkinidata/MOD_UrbanReadin.F90 ${HEADER} .bld/MOD_Const_LC.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_SingleSrfdata.o .bld/MOD_SPMD_Task.o .bld/MOD_Urban_Const_LCZ.o .bld/MOD_Urban_Vars_TimeInvariants.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+# Main modules dependencies
+.bld/MOD_3DCanopyRadiation.o: main/MOD_3DCanopyRadiation.F90 ${HEADER} .bld/MOD_Const_PFT.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Aerosol.o: main/MOD_Aerosol.F90 ${HEADER} .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SpatialMapping.o .bld/MOD_TimeManager.o .bld/MOD_Vars_1DForcing.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Albedo.o: main/MOD_Albedo.F90 ${HEADER} .bld/MOD_3DCanopyRadiation.o .bld/MOD_Aerosol.o .bld/MOD_Const_PFT.o .bld/MOD_Const_Physical.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SnowSnicar.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_AssimStomataConductance.o: main/MOD_AssimStomataConductance.F90 ${HEADER} .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_CNAnnualUpdate.o: main/BGC/MOD_BGC_CNAnnualUpdate.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_TimeManager.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_CNBalanceCheck.o: main/BGC/MOD_BGC_CNBalanceCheck.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_CNCStateUpdate1.o: main/BGC/MOD_BGC_CNCStateUpdate1.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Const_PFT.o .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_CNCStateUpdate2.o: main/BGC/MOD_BGC_CNCStateUpdate2.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_CNCStateUpdate3.o: main/BGC/MOD_BGC_CNCStateUpdate3.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_CNNStateUpdate1.o: main/BGC/MOD_BGC_CNNStateUpdate1.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Const_PFT.o .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_CNNStateUpdate2.o: main/BGC/MOD_BGC_CNNStateUpdate2.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_CNNStateUpdate3.o: main/BGC/MOD_BGC_CNNStateUpdate3.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_CNSASU.o: main/BGC/MOD_BGC_CNSASU.F90 ${HEADER} .bld/MOD_Vars_TimeVariables.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_CNSummary.o: main/BGC/MOD_BGC_CNSummary.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_CNZeroFluxes.o: main/BGC/MOD_BGC_CNZeroFluxes.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Daylength.o: main/BGC/MOD_BGC_Daylength.F90 ${HEADER} .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Soil_BiogeochemCompetition.o: main/BGC/MOD_BGC_Soil_BiogeochemCompetition.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Soil_BiogeochemDecompCascadeBGC.o: main/BGC/MOD_BGC_Soil_BiogeochemDecompCascadeBGC.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Soil_BiogeochemDecomp.o: main/BGC/MOD_BGC_Soil_BiogeochemDecomp.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Soil_BiogeochemLittVertTransp.o: main/BGC/MOD_BGC_Soil_BiogeochemLittVertTransp.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Soil_BiogeochemNitrifDenitrif.o: main/BGC/MOD_BGC_Soil_BiogeochemNitrifDenitrif.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Const_Physical.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Soil_BiogeochemNLeaching.o: main/BGC/MOD_BGC_Soil_BiogeochemNLeaching.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Vars_1DFluxes.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Soil_BiogeochemNStateUpdate1.o: main/BGC/MOD_BGC_Soil_BiogeochemNStateUpdate1.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Soil_BiogeochemPotential.o: main/BGC/MOD_BGC_Soil_BiogeochemPotential.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Soil_BiogeochemVerticalProfile.o: main/BGC/MOD_BGC_Soil_BiogeochemVerticalProfile.F90 ${HEADER} .bld/MOD_Vars_TimeVariables.o .bld/MOD_Const_PFT.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Vars_1DFluxes.o: main/BGC/MOD_BGC_Vars_1DFluxes.F90 ${HEADER} .bld/MOD_Landpatch.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Vars_1DPFTFluxes.o: main/BGC/MOD_BGC_Vars_1DPFTFluxes.F90 ${HEADER} .bld/MOD_LandPFT.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Vars_PFTimeVariables.o: main/BGC/MOD_BGC_Vars_PFTimeVariables.F90 ${HEADER} .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Vars_TimeInvariants.o: main/BGC/MOD_BGC_Vars_TimeInvariants.F90 ${HEADER} .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Vars_TimeVariables.o: main/BGC/MOD_BGC_Vars_TimeVariables.F90 ${HEADER} .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Veg_CNFireBase.o: main/BGC/MOD_BGC_Veg_CNFireBase.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Const_PFT.o .bld/MOD_Precision.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Veg_CNFireLi2016.o: main/BGC/MOD_BGC_Veg_CNFireLi2016.F90 ${HEADER} .bld/MOD_Vars_TimeVariables.o .bld/MOD_Const_PFT.o .bld/MOD_Const_Physical.o .bld/MOD_Eroot.o .bld/MOD_Precision.o .bld/MOD_Qsadv.o .bld/MOD_TimeManager.o .bld/MOD_Vars_1DForcing.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Veg_CNGapMortality.o: main/BGC/MOD_BGC_Veg_CNGapMortality.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Const_PFT.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Veg_CNGResp.o: main/BGC/MOD_BGC_Veg_CNGResp.F90 ${HEADER} .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Const_PFT.o .bld/MOD_Precision.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Veg_CNMResp.o: main/BGC/MOD_BGC_Veg_CNMResp.F90 ${HEADER} .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Const_PFT.o .bld/MOD_Precision.o .bld/MOD_Vars_1DPFTFluxes.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Veg_CNNDynamics.o: main/BGC/MOD_BGC_Veg_CNNDynamics.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Precision.o .bld/MOD_TimeManager.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Veg_CNPhenology.o: main/BGC/MOD_BGC_Veg_CNPhenology.F90 ${HEADER} .bld/MOD_BGC_Daylength.o .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Const_PFT.o .bld/MOD_Const_Physical.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Vars_1DForcing.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Veg_CNVegStructUpdate.o: main/BGC/MOD_BGC_Veg_CNVegStructUpdate.F90 ${HEADER} .bld/MOD_Vars_TimeVariables.o .bld/MOD_Const_PFT.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_BGC_Veg_NutrientCompetition.o: main/BGC/MOD_BGC_Veg_NutrientCompetition.F90 ${HEADER} .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Const_PFT.o .bld/MOD_Precision.o .bld/MOD_Vars_1DPFTFluxes.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_CanopyLayerProfile.o: main/MOD_CanopyLayerProfile.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_FrictionVelocity.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Catch_BasinNetwork.o: main/HYDRO/MOD_Catch_BasinNetwork.F90 ${HEADER} .bld/MOD_LandElm.o .bld/MOD_LandHRU.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Pixelset.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o .bld/MOD_WorkerPushData.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Catch_HillslopeFlow.o: main/HYDRO/MOD_Catch_HillslopeFlow.F90 ${HEADER} .bld/MOD_Catch_BasinNetwork.o .bld/MOD_Catch_HillslopeNetwork.o .bld/MOD_Catch_RiverLakeNetwork.o .bld/MOD_Catch_Vars_1DFluxes.o .bld/MOD_Catch_Vars_TimeVariables.o .bld/MOD_Const_Physical.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Catch_HillslopeNetwork.o: main/HYDRO/MOD_Catch_HillslopeNetwork.F90 ${HEADER} .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Catch_Hist.o: main/HYDRO/MOD_Catch_Hist.F90 ${HEADER} .bld/MOD_Catch_BasinNetwork.o .bld/MOD_Catch_Reservoir.o .bld/MOD_Catch_Vars_1DFluxes.o .bld/MOD_ElmVector.o .bld/MOD_HRUVector.o .bld/MOD_LandHRU.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Vector_ReadWrite.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Catch_LateralFlow.o: main/HYDRO/MOD_Catch_LateralFlow.F90 ${HEADER} .bld/MOD_Catch_BasinNetwork.o .bld/MOD_Catch_HillslopeFlow.o .bld/MOD_Catch_HillslopeNetwork.o .bld/MOD_Catch_Reservoir.o .bld/MOD_Catch_RiverLakeFlow.o .bld/MOD_Catch_RiverLakeNetwork.o .bld/MOD_Catch_SubsurfaceFlow.o .bld/MOD_Catch_Vars_1DFluxes.o .bld/MOD_Catch_Vars_TimeVariables.o .bld/MOD_Catch_WriteParameters.o .bld/MOD_Const_Physical.o .bld/MOD_ElementNeighbour.o .bld/MOD_Lake.o .bld/MOD_LandHRU.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_Pixel.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o .bld/MOD_Utils.o .bld/MOD_Vars_1DFluxes.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Catch_Reservoir.o: main/HYDRO/MOD_Catch_Reservoir.F90 ${HEADER} .bld/MOD_Catch_BasinNetwork.o .bld/MOD_Catch_RiverLakeNetwork.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Catch_RiverLakeFlow.o: main/HYDRO/MOD_Catch_RiverLakeFlow.F90 ${HEADER} .bld/MOD_Catch_BasinNetwork.o .bld/MOD_Catch_HillslopeNetwork.o .bld/MOD_Catch_Reservoir.o .bld/MOD_Catch_RiverLakeNetwork.o .bld/MOD_Catch_Vars_1DFluxes.o .bld/MOD_Catch_Vars_TimeVariables.o .bld/MOD_Const_Physical.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Catch_RiverLakeNetwork.o: main/HYDRO/MOD_Catch_RiverLakeNetwork.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Catch_BasinNetwork.o .bld/MOD_Catch_HillslopeNetwork.o .bld/MOD_Catch_Vars_TimeVariables.o .bld/MOD_DataType.o .bld/MOD_ElementNeighbour.o .bld/MOD_ElmVector.o .bld/MOD_Grid.o .bld/MOD_LandElm.o .bld/MOD_LandHRU.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFSerial.o .bld/MOD_Pixel.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Catch_SubsurfaceFlow.o: main/HYDRO/MOD_Catch_SubsurfaceFlow.F90 ${HEADER} .bld/MOD_Catch_BasinNetwork.o .bld/MOD_Catch_HillslopeNetwork.o .bld/MOD_Catch_RiverLakeNetwork.o .bld/MOD_Const_Physical.o .bld/MOD_DataType.o .bld/MOD_ElementNeighbour.o .bld/MOD_Hydro_SoilWater.o .bld/MOD_LandElm.o .bld/MOD_LandHRU.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Pixel.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o .bld/MOD_Utils.o .bld/MOD_Vars_1DFluxes.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_WorkerPushData.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Catch_Vars_1DFluxes.o: main/HYDRO/MOD_Catch_Vars_1DFluxes.F90 ${HEADER} .bld/MOD_Catch_BasinNetwork.o .bld/MOD_LandHRU.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Catch_Vars_TimeVariables.o: main/HYDRO/MOD_Catch_Vars_TimeVariables.F90 ${HEADER} .bld/MOD_Catch_BasinNetwork.o .bld/MOD_ElmVector.o .bld/MOD_HRUVector.o .bld/MOD_LandHRU.o .bld/MOD_Mesh.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Vector_ReadWrite.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Catch_WriteParameters.o: main/HYDRO/MOD_Catch_WriteParameters.F90 ${HEADER} .bld/MOD_Catch_Reservoir.o .bld/MOD_Catch_SubsurfaceFlow.o .bld/MOD_ElmVector.o .bld/MOD_HRUVector.o .bld/MOD_LandHRU.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vector_ReadWrite.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_CheckEquilibrium.o: main/MOD_CheckEquilibrium.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Forcing.o .bld/MOD_Grid.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Vars_1DForcing.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Const_LC.o: main/MOD_Const_LC.F90 ${HEADER} .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Const_PFT.o: main/MOD_Const_PFT.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_TimeManager.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Const_Physical.o: main/MOD_Const_Physical.F90 ${HEADER} .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_CropReadin.o: main/MOD_CropReadin.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_DA_Const.o: main/DA/MOD_DA_Const.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_DA_EnKF.o: main/DA/MOD_DA_EnKF.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_DA_Ensemble.o: main/DA/MOD_DA_Ensemble.F90 ${HEADER} .bld/MOD_DA_Vars_TimeVariables.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Vars_1DForcing.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_DA_Main.o: main/DA/MOD_DA_Main.F90 ${HEADER} .bld/MOD_DA_Ensemble.o .bld/MOD_DA_SM.o .bld/MOD_DA_TWS.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Vars_1DFluxes.o .bld/MOD_Vars_1DForcing.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_DA_RTM.o: main/DA/MOD_DA_RTM.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_DA_Const.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_1DForcing.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_DA_SM.o: main/DA/MOD_DA_SM.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Const_Physical.o .bld/MOD_DA_EnKF.o .bld/MOD_DA_RTM.o .bld/MOD_DataType.o .bld/MOD_DA_Vars_TimeVariables.o .bld/MOD_Grid.o .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFSerial.o .bld/MOD_Pixel.o .bld/MOD_Pixelset.o .bld/MOD_RangeCheck.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_UserDefFun.o .bld/MOD_Vars_1DFluxes.o .bld/MOD_Vars_1DForcing.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_DA_TWS.o: main/DA/MOD_DA_TWS.F90 ${HEADER} .bld/MOD_DataType.o .bld/MOD_Forcing.o .bld/MOD_Grid.o .bld/MOD_LandCrop.o .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFSerial.o .bld/MOD_Pixelset.o .bld/MOD_RangeCheck.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_UserDefFun.o .bld/MOD_Vars_1DFluxes.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_DA_Vars_1DFluxes.o: main/DA/MOD_DA_Vars_1DFluxes.F90 ${HEADER} .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_DA_Vars_TimeVariables.o: main/DA/MOD_DA_Vars_TimeVariables.F90 ${HEADER} .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_ElementNeighbour.o: main/HYDRO/MOD_ElementNeighbour.F90 ${HEADER} .bld/MOD_DataType.o .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_NetCDFVector.o .bld/MOD_Pixel.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Eroot.o: main/MOD_Eroot.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Hydro_SoilFunction.o .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_FireData.o: main/MOD_FireData.F90 ${HEADER} .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFSerial.o .bld/MOD_RangeCheck.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_ForcingDownscaling.o: main/MOD_ForcingDownscaling.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Qsadv.o .bld/MOD_UserDefFun.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Forcing.o: main/MOD_Forcing.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Const_Physical.o .bld/MOD_DataType.o .bld/MOD_ForcingDownscaling.o .bld/MOD_Grid.o .bld/MOD_LandCrop.o .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_MonthlyinSituCO2MaunaLoa.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFSerial.o .bld/MOD_NetCDFVector.o .bld/MOD_OrbCosazi.o .bld/MOD_OrbCoszen.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_UserDefFun.o .bld/MOD_UserSpecifiedForcing.o .bld/MOD_Vars_1DForcing.o .bld/MOD_Vars_2DForcing.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_FrictionVelocity.o: main/MOD_FrictionVelocity.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Glacier.o: main/MOD_Glacier.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_FrictionVelocity.o .bld/MOD_Namelist.o .bld/MOD_PhaseChange.o .bld/MOD_Precision.o .bld/MOD_Qsadv.o .bld/MOD_SnowLayersCombineDivide.o .bld/MOD_SoilSnowHydrology.o .bld/MOD_TurbulenceLEddy.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Grid_Reservoir.o: main/HYDRO/MOD_Grid_Reservoir.F90 ${HEADER} .bld/MOD_DataType.o .bld/MOD_Grid_RiverLakeNetwork.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Grid_RiverLakeFlow.o: main/HYDRO/MOD_Grid_RiverLakeFlow.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Forcing.o .bld/MOD_Grid_Reservoir.o .bld/MOD_Grid_RiverLakeHist.o .bld/MOD_Grid_RiverLakeNetwork.o .bld/MOD_Grid_RiverLakeTimeVars.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o .bld/MOD_Vars_1DFluxes.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Grid_RiverLakeHist.o: main/HYDRO/MOD_Grid_RiverLakeHist.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Forcing.o .bld/MOD_Grid_Reservoir.o .bld/MOD_Grid_RiverLakeNetwork.o .bld/MOD_HistGridded.o .bld/MOD_HistVector.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vector_ReadWrite.o .bld/MOD_WorkerPushData.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Grid_RiverLakeNetwork.o: main/HYDRO/MOD_Grid_RiverLakeNetwork.F90 ${HEADER} .bld/MOD_Grid.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o .bld/MOD_WorkerPushData.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Grid_RiverLakeTimeVars.o: main/HYDRO/MOD_Grid_RiverLakeTimeVars.F90 ${HEADER} .bld/MOD_Grid_Reservoir.o .bld/MOD_Grid_RiverLakeNetwork.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vector_ReadWrite.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_GroundFluxes.o: main/MOD_GroundFluxes.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_FrictionVelocity.o .bld/MOD_Precision.o .bld/MOD_TurbulenceLEddy.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_GroundTemperature.o: main/MOD_GroundTemperature.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Namelist.o .bld/MOD_PhaseChange.o .bld/MOD_Precision.o .bld/MOD_SoilThermalParameters.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_HistGridded.o: main/MOD_HistGridded.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Forcing.o .bld/MOD_Grid.o .bld/MOD_HistWriteBack.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SingleSrfdata.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o .bld/MOD_Vars_1DAccFluxes.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Hist.o: main/MOD_Hist.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Catch_Hist.o .bld/MOD_Const_Physical.o .bld/MOD_DataType.o .bld/MOD_DA_TWS.o .bld/MOD_DA_Vars_TimeVariables.o .bld/MOD_Forcing.o .bld/MOD_Grid_RiverLakeHist.o .bld/MOD_HistGridded.o .bld/MOD_HistSingle.o .bld/MOD_HistVector.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Vars_1DAccFluxes.o .bld/MOD_Vars_1DFluxes.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_HistSingle.o: main/MOD_HistSingle.F90 ${HEADER} .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SingleSrfdata.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Vars_1DAccFluxes.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_HistVector.o: main/MOD_HistVector.F90 ${HEADER} .bld/MOD_ElmVector.o .bld/MOD_HRUVector.o .bld/MOD_LandElm.o .bld/MOD_LandHRU.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_1DAccFluxes.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_HistWriteBack.o: main/MOD_HistWriteBack.F90 ${HEADER} .bld/MOD_Grid.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Hydro_SoilFunction.o: main/HYDRO/MOD_Hydro_SoilFunction.F90 ${HEADER} .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Hydro_SoilWater.o: main/HYDRO/MOD_Hydro_SoilWater.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Hydro_SoilFunction.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Hydro_VIC.o: main/HYDRO/MOD_Hydro_VIC.F90 ${HEADER} .bld/MOD_Hydro_VIC_Variables.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Hydro_VIC_Variables.o: main/HYDRO/MOD_Hydro_VIC_Variables.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Irrigation.o: main/MOD_Irrigation.F90 ${HEADER} .bld/MOD_Vars_TimeVariables.o .bld/MOD_Const_PFT.o .bld/MOD_Const_Physical.o .bld/MOD_Hydro_SoilFunction.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Qsadv.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Vars_1DFluxes.o .bld/MOD_Vars_1DForcing.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_LAIEmpirical.o: main/MOD_LAIEmpirical.F90 ${HEADER} .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_LAIReadin.o: main/MOD_LAIReadin.F90 ${HEADER} .bld/MOD_Const_LC.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_SingleSrfdata.o .bld/MOD_SPMD_Task.o .bld/MOD_UserDefFun.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Lake.o: main/MOD_Lake.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_FrictionVelocity.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Qsadv.o .bld/MOD_SnowLayersCombineDivide.o .bld/MOD_SoilSnowHydrology.o .bld/MOD_SoilThermalParameters.o .bld/MOD_TurbulenceLEddy.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_LeafInterception.o: main/MOD_LeafInterception.F90 ${HEADER} .bld/MOD_Const_PFT.o .bld/MOD_Const_Physical.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Vars_1DPFTFluxes.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_LeafTemperature.o: main/MOD_LeafTemperature.F90 ${HEADER} .bld/MOD_AssimStomataConductance.o .bld/MOD_CanopyLayerProfile.o .bld/MOD_Const_LC.o .bld/MOD_Const_Physical.o .bld/MOD_FrictionVelocity.o .bld/MOD_Namelist.o .bld/MOD_Ozone.o .bld/MOD_PlantHydraulic.o .bld/MOD_Precision.o .bld/MOD_Qsadv.o .bld/MOD_SPMD_Task.o .bld/MOD_TurbulenceLEddy.o .bld/MOD_UserSpecifiedForcing.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_LeafTemperaturePC.o: main/MOD_LeafTemperaturePC.F90 ${HEADER} .bld/MOD_AssimStomataConductance.o .bld/MOD_CanopyLayerProfile.o .bld/MOD_Const_PFT.o .bld/MOD_Const_Physical.o .bld/MOD_FrictionVelocity.o .bld/MOD_Namelist.o .bld/MOD_Ozone.o .bld/MOD_PlantHydraulic.o .bld/MOD_Precision.o .bld/MOD_Qsadv.o .bld/MOD_TurbulenceLEddy.o .bld/MOD_UserSpecifiedForcing.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_LightningData.o: main/MOD_LightningData.F90 ${HEADER} .bld/MOD_Vars_TimeVariables.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFSerial.o .bld/MOD_RangeCheck.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Lulcc_Driver.o: main/LULCC/MOD_Lulcc_Driver.F90 ${HEADER} .bld/MOD_Lulcc_Initialize.o .bld/MOD_Lulcc_MassEnergyConserve.o .bld/MOD_Lulcc_TransferTraceReadin.o .bld/MOD_Lulcc_Vars_TimeInvariants.o .bld/MOD_Lulcc_Vars_TimeVariables.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Lulcc_Initialize.o: main/LULCC/MOD_Lulcc_Initialize.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Const_LC.o .bld/MOD_Const_PFT.o .bld/MOD_Initialize.o .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_Lulcc_Vars_TimeInvariants.o .bld/MOD_Lulcc_Vars_TimeVariables.o .bld/MOD_Mesh.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_SrfdataRestart.o .bld/MOD_TimeManager.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Lulcc_MassEnergyConserve.o: main/LULCC/MOD_Lulcc_MassEnergyConserve.F90 ${HEADER} .bld/MOD_Albedo.o .bld/MOD_Const_Physical.o .bld/MOD_GroundTemperature.o .bld/MOD_Hydro_SoilWater.o .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_Lulcc_TransferTraceReadin.o .bld/MOD_Lulcc_Vars_TimeInvariants.o .bld/MOD_Lulcc_Vars_TimeVariables.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SnowFraction.o .bld/MOD_SPMD_Task.o .bld/MOD_Urban_Vars_TimeInvariants.o .bld/MOD_Urban_Vars_TimeVariables.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Lulcc_TransferTraceReadin.o: main/LULCC/MOD_Lulcc_TransferTraceReadin.F90 ${HEADER} .bld/MOD_5x5DataReadin.o .bld/MOD_AggregationRequestData.o .bld/MOD_Block.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_MeshFilter.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFVector.o .bld/MOD_Pixel.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_RegionClip.o .bld/MOD_SPMD_Task.o .bld/MOD_SrfdataDiag.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Lulcc_Vars_TimeInvariants.o: main/LULCC/MOD_Lulcc_Vars_TimeInvariants.F90 ${HEADER} .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_Mesh.o .bld/MOD_Pixelset.o .bld/MOD_Pixelset.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Lulcc_Vars_TimeVariables.o: main/LULCC/MOD_Lulcc_Vars_TimeVariables.F90 ${HEADER} .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_Lulcc_Vars_TimeInvariants.o .bld/MOD_Mesh.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Urban_Vars_TimeVariables.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_MonthlyinSituCO2MaunaLoa.o: main/MOD_MonthlyinSituCO2MaunaLoa.F90 ${HEADER} .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_NdepData.o: main/MOD_NdepData.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFSerial.o .bld/MOD_RangeCheck.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_NetSolar.o: main/MOD_NetSolar.F90 ${HEADER} .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_TimeManager.o .bld/MOD_Vars_1DPFTFluxes.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_NewSnow.o: main/MOD_NewSnow.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_NitrifData.o: main/MOD_NitrifData.F90 ${HEADER} .bld/MOD_Vars_TimeVariables.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFSerial.o .bld/MOD_RangeCheck.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_OrbCosazi.o: main/MOD_OrbCosazi.F90 ${HEADER} .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_OrbCoszen.o: main/MOD_OrbCoszen.F90 ${HEADER} .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Ozone.o: main/MOD_Ozone.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_Const_Physical.o .bld/MOD_Const_PFT.o .bld/MOD_Grid.o .bld/MOD_DataType.o .bld/MOD_SpatialMapping.o .bld/MOD_Vars_1DForcing.o .bld/MOD_Namelist.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_PhaseChange.o: main/MOD_PhaseChange.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Hydro_SoilFunction.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_PlantHydraulic.o: main/MOD_PlantHydraulic.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Qsadv.o: main/MOD_Qsadv.F90 ${HEADER} .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_RainSnowTemp.o: main/MOD_RainSnowTemp.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_WetBulb.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Runoff.o: main/MOD_Runoff.F90 ${HEADER} .bld/MOD_IncompleteGamma.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SimpleOcean.o: main/MOD_SimpleOcean.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_FrictionVelocity.o .bld/MOD_Precision.o .bld/MOD_Qsadv.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SnowFraction.o: main/MOD_SnowFraction.F90 ${HEADER} .bld/MOD_LandPFT.o .bld/MOD_Precision.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SnowLayersCombineDivide.o: main/MOD_SnowLayersCombineDivide.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SnowSnicar.o: main/MOD_SnowSnicar.F90 ${HEADER} .bld/MOD_Aerosol.o .bld/MOD_Const_Physical.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SoilSnowHydrology.o: main/MOD_SoilSnowHydrology.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_DA_TWS.o .bld/MOD_Hydro_SoilWater.o .bld/MOD_Hydro_VIC.o .bld/MOD_Hydro_VIC_Variables.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Runoff.o .bld/MOD_Utils.o .bld/MOD_Vars_1DFluxes.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SoilSurfaceResistance.o: main/MOD_SoilSurfaceResistance.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Hydro_SoilFunction.o .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_SoilThermalParameters.o: main/MOD_SoilThermalParameters.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Thermal.o: main/MOD_Thermal.F90 ${HEADER} .bld/MOD_Const_PFT.o .bld/MOD_Const_Physical.o .bld/MOD_Eroot.o .bld/MOD_FrictionVelocity.o .bld/MOD_GroundFluxes.o .bld/MOD_GroundTemperature.o .bld/MOD_Hydro_SoilFunction.o .bld/MOD_LandPFT.o .bld/MOD_LeafTemperature.o .bld/MOD_LeafTemperaturePC.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Qsadv.o .bld/MOD_SoilSurfaceResistance.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_1DPFTFluxes.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_TurbulenceLEddy.o: main/MOD_TurbulenceLEddy.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_Albedo.o: main/URBAN/MOD_Urban_Albedo.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Urban_Shortwave.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_BEM.o: main/URBAN/MOD_Urban_BEM.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Precision.o .bld/MOD_Urban_Shortwave.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_Const_LCZ.o: main/URBAN/MOD_Urban_Const_LCZ.F90 ${HEADER} .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_Flux.o: main/URBAN/MOD_Urban_Flux.F90 ${HEADER} .bld/MOD_AssimStomataConductance.o .bld/MOD_CanopyLayerProfile.o .bld/MOD_Const_Physical.o .bld/MOD_FrictionVelocity.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Qsadv.o .bld/MOD_SPMD_Task.o .bld/MOD_UserSpecifiedForcing.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_GroundFlux.o: main/URBAN/MOD_Urban_GroundFlux.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_FrictionVelocity.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_Hydrology.o: main/URBAN/MOD_Urban_Hydrology.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Lake.o .bld/MOD_Precision.o .bld/MOD_SoilSnowHydrology.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_ImperviousTemperature.o: main/URBAN/MOD_Urban_ImperviousTemperature.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_PhaseChange.o .bld/MOD_Precision.o .bld/MOD_SoilThermalParameters.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_LAIReadin.o: main/URBAN/MOD_Urban_LAIReadin.F90 ${HEADER} .bld/MOD_Const_LC.o .bld/MOD_Namelist.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_SingleSrfdata.o .bld/MOD_SPMD_Task.o .bld/MOD_Urban_Vars_TimeInvariants.o .bld/MOD_UserDefFun.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_Longwave.o: main/URBAN/MOD_Urban_Longwave.F90 ${HEADER} .bld/MOD_3DCanopyRadiation.o .bld/MOD_Const_Physical.o .bld/MOD_Precision.o .bld/MOD_Urban_Shortwave.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_LUCY.o: main/URBAN/MOD_Urban_LUCY.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_TimeManager.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_NetSolar.o: main/URBAN/MOD_Urban_NetSolar.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_TimeManager.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_PerviousTemperature.o: main/URBAN/MOD_Urban_PerviousTemperature.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_PhaseChange.o .bld/MOD_Precision.o .bld/MOD_SoilThermalParameters.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_RoofFlux.o: main/URBAN/MOD_Urban_RoofFlux.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_FrictionVelocity.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_RoofTemperature.o: main/URBAN/MOD_Urban_RoofTemperature.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_PhaseChange.o .bld/MOD_Precision.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_Shortwave.o: main/URBAN/MOD_Urban_Shortwave.F90 ${HEADER} .bld/MOD_3DCanopyRadiation.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_Thermal.o: main/URBAN/MOD_Urban_Thermal.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Eroot.o .bld/MOD_Hydro_SoilFunction.o .bld/MOD_Lake.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Urban_BEM.o .bld/MOD_Urban_Flux.o .bld/MOD_Urban_GroundFlux.o .bld/MOD_Urban_ImperviousTemperature.o .bld/MOD_Urban_Longwave.o .bld/MOD_Urban_LUCY.o .bld/MOD_Urban_PerviousTemperature.o .bld/MOD_Urban_RoofTemperature.o .bld/MOD_Urban_Shortwave.o .bld/MOD_Urban_WallTemperature.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_Vars_1DFluxes.o: main/URBAN/MOD_Urban_Vars_1DFluxes.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_LandUrban.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_Vars_TimeInvariants.o: main/URBAN/MOD_Urban_Vars_TimeInvariants.F90 ${HEADER} .bld/MOD_Namelist.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_LandUrban.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_Vars_TimeVariables.o: main/URBAN/MOD_Urban_Vars_TimeVariables.F90 ${HEADER} .bld/MOD_Namelist.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_LandUrban.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Urban_WallTemperature.o: main/URBAN/MOD_Urban_WallTemperature.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Precision.o .bld/MOD_Utils.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_UserSpecifiedForcing.o: main/MOD_UserSpecifiedForcing.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Const_Physical.o .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_Qsadv.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Vars_1DAccFluxes.o: main/MOD_Vars_1DAccFluxes.F90 ${HEADER} .bld/MOD_Catch_Hist.o .bld/MOD_Catch_Vars_1DFluxes.o .bld/MOD_Const_Physical.o .bld/MOD_DA_Vars_1DFluxes.o .bld/MOD_DA_Vars_TimeVariables.o .bld/MOD_FrictionVelocity.o .bld/MOD_LandCrop.o .bld/MOD_LandElm.o .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_TurbulenceLEddy.o .bld/MOD_Vars_1DFluxes.o .bld/MOD_Vars_1DForcing.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o .bld/MOD_Forcing.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Vars_1DFluxes.o: main/MOD_Vars_1DFluxes.F90 ${HEADER} .bld/MOD_BGC_Vars_1DFluxes.o .bld/MOD_Catch_Vars_1DFluxes.o .bld/MOD_DA_Vars_1DFluxes.o .bld/MOD_Landpatch.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Urban_Vars_1DFluxes.o .bld/MOD_Vars_1DPFTFluxes.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Vars_1DForcing.o: main/MOD_Vars_1DForcing.F90 ${HEADER} .bld/MOD_Landpatch.o .bld/MOD_Mesh.o .bld/MOD_Namelist.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Vars_1DPFTFluxes.o: main/MOD_Vars_1DPFTFluxes.F90 ${HEADER} .bld/MOD_BGC_Vars_1DPFTFluxes.o .bld/MOD_LandPFT.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Vars_2DForcing.o: main/MOD_Vars_2DForcing.F90 ${HEADER} .bld/MOD_DataType.o .bld/MOD_Grid.o .bld/MOD_SPMD_Task.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Vars_Global.o: main/MOD_Vars_Global.F90 ${HEADER} .bld/MOD_Namelist.o .bld/MOD_Precision.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Vars_TimeInvariants.o: main/MOD_Vars_TimeInvariants.F90 ${HEADER} .bld/MOD_BGC_Vars_PFTimeVariables.o .bld/MOD_BGC_Vars_TimeInvariants.o .bld/MOD_Const_LC.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SPMD_Task.o .bld/MOD_Urban_Vars_TimeInvariants.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Vars_TimeVariables.o: main/MOD_Vars_TimeVariables.F90 ${HEADER} .bld/MOD_BGC_Vars_TimeVariables.o .bld/MOD_Catch_Vars_TimeVariables.o .bld/MOD_Const_LC.o .bld/MOD_DA_Vars_TimeVariables.o .bld/MOD_Grid_RiverLakeTimeVars.o .bld/MOD_Landpatch.o .bld/MOD_LandPFT.o .bld/MOD_Namelist.o .bld/MOD_NetCDFVector.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SPMD_Task.o .bld/MOD_TimeManager.o .bld/MOD_Urban_Vars_TimeVariables.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_Vector_ReadWrite.o: main/HYDRO/MOD_Vector_ReadWrite.F90 ${HEADER} .bld/MOD_DataType.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_VicParaReadin.o: main/MOD_VicParaReadin.F90 ${HEADER} .bld/MOD_Block.o .bld/MOD_Landpatch.o .bld/MOD_Namelist.o .bld/MOD_NetCDFBlock.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_RangeCheck.o .bld/MOD_SpatialMapping.o .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Vars_TimeInvariants.o .bld/MOD_Vars_TimeVariables.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+.bld/MOD_WetBulb.o: main/MOD_WetBulb.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Precision.o .bld/MOD_Qsadv.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+
+# Postprocess modules dependencies
+.bld/MOD_Concatenate.o: postprocess/MOD_Concatenate.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Block.o .bld/MOD_NetCDFSerial.o .bld/MOD_Vars_Global.o .bld/MOD_Grid.o .bld/MOD_Utils.o .bld/MOD_UserDefFun.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+	
+.bld/HistConcatenate.o: postprocess/HistConcatenate.F90 ${HEADER} .bld/MOD_SPMD_Task.o .bld/MOD_Vars_Global.o .bld/MOD_Namelist.o .bld/MOD_Block.o .bld/MOD_Grid.o .bld/MOD_Concatenate.o .bld/MOD_NetCDFSerial.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+	
+.bld/MOD_Vector2Grid.o: postprocess/MOD_Vector2Grid.F90 ${HEADER} .bld/MOD_Precision.o .bld/MOD_NetCDFSerial.o .bld/MOD_Vars_Global.o .bld/MOD_Utils.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
+	
+.bld/POST_Vector2Grid.o: postprocess/POST_Vector2Grid.F90 ${HEADER} .bld/MOD_Namelist.o .bld/MOD_Vector2Grid.o .bld/MOD_NetCDFSerial.o
+	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
