@@ -6,12 +6,14 @@
 
   NETCDF_LIB = /usr/local/lib
   NETCDF_INC = /usr/local/include
+  CUDA_LIB = /opt/nvidia/hpc_sdk/Linux_x86_64/25.5/compilers/lib
+  CUDA_INC = /opt/nvidia/hpc_sdk/Linux_x86_64/25.5/compilers/include
 
   MOD_CMD = -module 
 
   FOPTS = -O2 -traceback -r8 -Mfreeform -Minfo=accel -cuda -gpu=mem:unified
 
-  INCLUDE_DIR = -I$(NETCDF_INC)
+  INCLUDE_DIR = -I$(NETCDF_INC) -Iinclude -I.bld
   LDFLAGS = -L$(NETCDF_LIB) -lnetcdff -lnetcdf -llapack -lblas
 
 #============================================================

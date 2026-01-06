@@ -7,13 +7,13 @@
 include include/Makeoptions
 HEADER = include/define.h
 
-INCLUDE_DIR = -Iinclude -I.bld/ -I${NETCDF_INC}
 VPATH = include : share : mksrfdata : mkinidata \
 	: main : main/HYDRO : main/BGC : main/URBAN : main/LULCC : main/DA \
-	: extends/CaMa/src : postprocess : .bld
+	: extends/CaMa/src : postprocess : .bld : cudamain
 
 .PHONY: all
-all: config.mk mkdir_build mksrfdata.x mkinidata.x colm.x postprocess.x lib
+# all: config.mk mkdir_build mksrfdata.x mkinidata.x colm.x postprocess.x lib
+all: config.mk mkdir_build colm.x
 	@echo ''
 	@echo '*******************************************************'
 	@echo '*                                                     *'

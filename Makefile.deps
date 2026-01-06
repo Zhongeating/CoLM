@@ -391,7 +391,7 @@
 .bld/MOD_Grid_RiverLakeTimeVars.o: main/HYDRO/MOD_Grid_RiverLakeTimeVars.F90 ${HEADER} .bld/MOD_Grid_Reservoir.o .bld/MOD_Grid_RiverLakeNetwork.o .bld/MOD_Namelist.o .bld/MOD_NetCDFSerial.o .bld/MOD_Precision.o .bld/MOD_SPMD_Task.o .bld/MOD_Vector_ReadWrite.o
 	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
 
-.bld/MOD_GroundFluxes.o: main/MOD_GroundFluxes.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_FrictionVelocity.o .bld/MOD_Precision.o .bld/MOD_TurbulenceLEddy.o
+.bld/MOD_GroundFluxes.o: main/MOD_GroundFluxes.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_FrictionVelocity.o .bld/MOD_Precision.o .bld/MOD_TurbulenceLEddy.o .bld/MOD_Namelist.o
 	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
 
 .bld/MOD_GroundTemperature.o: main/MOD_GroundTemperature.F90 ${HEADER} .bld/MOD_Const_Physical.o .bld/MOD_Namelist.o .bld/MOD_PhaseChange.o .bld/MOD_Precision.o .bld/MOD_SoilThermalParameters.o .bld/MOD_SPMD_Task.o .bld/MOD_Utils.o

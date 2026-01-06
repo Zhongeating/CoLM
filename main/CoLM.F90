@@ -37,75 +37,19 @@ PROGRAM CoLM
    USE MOD_Pixel
    USE MOD_Mesh
    USE MOD_LandElm
-#ifdef CATCHMENT
-   USE MOD_LandHRU
-#endif
    USE MOD_LandPatch
-#ifdef URBAN_MODEL
-   USE MOD_LandUrban
-   USE MOD_Urban_LAIReadin
-#endif
-#if (defined LULC_IGBP_PFT || defined LULC_IGBP_PC)
-   USE MOD_LandPFT
-#endif
-#if (defined UNSTRUCTURED || defined CATCHMENT)
-   USE MOD_ElmVector
-#endif
-#ifdef CATCHMENT
-   USE MOD_HRUVector
-#endif
-#if (defined CaMa_Flood)
-   USE MOD_CaMa_colmCaMa
-#endif
-#ifdef SinglePoint
-   USE MOD_SingleSrfdata
-#endif
-#if (defined CatchLateralFlow)
-   USE MOD_Catch_BasinNetwork
-   USE MOD_Catch_LateralFlow
-#endif
-#if (defined GridRiverLakeFlow)
-   USE MOD_Grid_RiverLakeFlow
-#endif
 
    USE MOD_Ozone, only: init_ozone_data, update_ozone_data
 
    USE MOD_SrfdataRestart
    USE MOD_LAIReadin
 
-#ifdef BGC
-   USE MOD_NitrifData
-   USE MOD_NdepData
-   USE MOD_FireData
-   USE MOD_LightningData
-#endif
-
-#ifdef CROP
-   USE MOD_CropReadin
-#endif
-
-#ifdef LULCC
-   USE MOD_Lulcc_Driver
-#endif
-
-#ifdef CoLMDEBUG
-   USE MOD_Hydro_SoilWater
-#endif
-
    ! SNICAR model
    USE MOD_SnowSnicar, only: SnowAge_init, SnowOptics_init
    USE MOD_Aerosol, only: AerosolDepInit, AerosolDepReadin
 
-#ifdef DataAssimilation
-   USE MOD_DA_Main
-#endif
-
 #ifdef USEMPI
    USE MOD_HistWriteBack
-#endif
-
-#ifdef EXTERNAL_LAKE
-   USE MOD_Lake_Namelist
 #endif
 
    IMPLICIT NONE
@@ -145,31 +89,12 @@ PROGRAM CoLM
 !-----------------------------------------------------------------------
 
 #ifdef USEMPI
-#ifdef USESplitAI
-      integer :: num_procs, my_rank, ierr, color, new_comm
-      CALL MPI_Init(ierr) ! Initialize MPI
-      CALL MPI_Comm_size(MPI_COMM_WORLD, num_procs, ierr) ! Get the total number of processes
-      CALL MPI_Comm_rank(MPI_COMM_WORLD, my_rank, ierr) ! Get the rank of the current process
-      color = 1 ! The pyroot process will be in its own communicator
-      print*, 'before split I am process', my_rank, 'of', num_procs
-      CALL MPI_Comm_split(MPI_COMM_WORLD, color, my_rank, new_comm, ierr) ! Split the communicator
-      print*, 'after split I am process', my_rank, 'of', num_procs
-      CALL MPI_Comm_size(new_comm, num_procs, ierr) ! Get the total number of processes
-      CALL MPI_Comm_rank(new_comm, my_rank, ierr) ! Get the rank of the current process
-      print*,num_procs,"for CoLM"
-      CALL spmd_init (new_comm)
-#else
       CALL spmd_init ()
-#endif
 #endif
 
       CALL getarg (1, nlfile)
 
       CALL read_namelist (nlfile)
-
-#ifdef EXTERNAL_LAKE
-      CALL read_lake_namelist (nlfile)
-#endif
 
 #ifdef USEMPI
       IF (DEF_HIST_WriteBack) THEN
@@ -190,15 +115,6 @@ PROGRAM CoLM
       dir_forcing  = DEF_dir_forcing
       dir_hist     = DEF_dir_history
       dir_restart  = DEF_dir_restart
-
-#ifdef SinglePoint
-      fsrfdata = trim(dir_landdata) // '/srfdata.nc'
-#ifndef URBAN_MODEL
-      CALL read_surface_data_single (fsrfdata, mksrfdata=.false.)
-#else
-      CALL read_urban_surface_data_single (fsrfdata, mksrfdata=.false., mkrun=.true.)
-#endif
-#endif
 
       deltim    = DEF_simulation_time%timestep
       greenwich = DEF_simulation_time%greenwich
@@ -230,12 +146,7 @@ PROGRAM CoLM
       CALL Init_LC_Const
       CALL Init_PFT_Const
 
-#ifdef LULCC
-      lc_year = s_year
-      DEF_LC_YEAR = lc_year
-#else
       lc_year = DEF_LC_YEAR
-#endif
 
 #ifndef SinglePoint
       CALL pixel%load_from_file    (dir_landdata)
@@ -245,37 +156,7 @@ PROGRAM CoLM
 
       CALL pixelset_load_from_file (dir_landdata, 'landelm'  , landelm  , numelm  , lc_year)
 
-#ifdef CATCHMENT
-      CALL pixelset_load_from_file (dir_landdata, 'landhru'  , landhru  , numhru  , lc_year)
-#endif
-
       CALL pixelset_load_from_file (dir_landdata, 'landpatch', landpatch, numpatch, lc_year)
-
-#if (defined LULC_IGBP_PFT || defined LULC_IGBP_PC)
-      CALL pixelset_load_from_file (dir_landdata, 'landpft'  , landpft  , numpft  , lc_year)
-      CALL map_patch_to_pft
-#endif
-
-#ifdef URBAN_MODEL
-      CALL pixelset_load_from_file (dir_landdata, 'landurban', landurban, numurban, lc_year)
-      CALL map_patch_to_urban
-#endif
-
-#if (defined UNSTRUCTURED || defined CATCHMENT)
-      CALL elm_vector_init ()
-#ifdef CATCHMENT
-      CALL hru_vector_init ()
-#endif
-#endif
-
-#ifdef CatchLateralFlow
-      CALL build_basin_network ()
-#endif
-
-#ifdef GridRiverLakeFlow
-      CALL build_riverlake_network ()
-      IF (DEF_Reservoir_Method > 0) CALL reservoir_init ()
-#endif
 #endif
 
       CALL adj2end(sdate)
@@ -327,16 +208,6 @@ PROGRAM CoLM
 
       CALL CheckEqb_init ()
 
-#if (defined CaMa_Flood)
-#ifdef USEMPI
-            CALL mpi_barrier (p_comm_glb, p_err)
-#endif
-      CALL colm_CaMa_init !initialize CaMa-Flood
-#ifdef USEMPI
-      CALL mpi_barrier (p_comm_glb, p_err)
-#endif
-#endif
-
       IF(DEF_USE_OZONEDATA)THEN
          CALL init_Ozone_data (sdate)
       ENDIF
@@ -345,43 +216,6 @@ PROGRAM CoLM
       IF (DEF_Aerosol_Readin) THEN
          CALL AerosolDepInit ()
       ENDIF
-
-#ifdef BGC
-      IF (DEF_USE_NITRIF) THEN
-         CALL init_nitrif_data (ststamp)
-      ENDIF
-
-      IF (DEF_NDEP_FREQUENCY==1)THEN ! Initial annual ndep data readin
-         CALL init_ndep_data_annually (sdate(1))
-      ELSEIF(DEF_NDEP_FREQUENCY==2)THEN ! Initial monthly ndep data readin
-         CALL init_ndep_data_monthly (sdate(1),s_month)
-      ELSE
-         write(6,*) 'ERROR: DEF_NDEP_FREQUENCY should be only 1-2, Current is:', &
-                     DEF_NDEP_FREQUENCY
-         CALL CoLM_stop ()
-      ENDIF
-
-      IF (DEF_USE_FIRE) THEN
-         CALL init_fire_data (sdate(1))
-         CALL init_lightning_data (sdate)
-      ENDIF
-#endif
-
-#ifdef CROP
-   CALL CROP_readin ()
-#endif
-
-#if (defined CatchLateralFlow)
-      CALL lateral_flow_init (lc_year)
-#endif
-#ifdef GridRiverLakeFlow
-      CALL grid_riverlake_flow_init ()
-#endif
-
-#ifdef DataAssimilation
-      ! initialize data assimilation
-      CALL init_DA ()
-#endif
 
       ! ======================================================================
       ! begin time stepping loop
@@ -416,19 +250,6 @@ PROGRAM CoLM
             CALL update_Ozone_data(itstamp, deltim)
          ENDIF
 
-#ifdef BGC
-         IF(DEF_USE_NITRIF) THEN
-            time_prev = itstamp + int(-deltim)
-            CALL julian2monthday(time_prev%year,time_prev%day,month_prev,mday_prev)
-            if(month_p /= month_prev)then
-               CALL update_nitrif_data (month_p)
-            end if
-         ENDIF
-         IF(DEF_USE_FIRE)THEN
-            CALL update_lightning_data (itstamp, deltim)
-         ENDIF
-#endif
-
          ! Read in aerosol deposition forcing data
          IF (DEF_Aerosol_Readin) THEN
             CALL AerosolDepReadin (jdate)
@@ -443,56 +264,11 @@ PROGRAM CoLM
 
          CALL julian2monthday (jdate(1), jdate(2), month, mday)
 
-#ifdef BGC
-
-         IF (DEF_NDEP_FREQUENCY==1)THEN ! Read Annual Ndep data
-            IF (jdate(1) /= year_p) THEN
-               CALL update_ndep_data_annually (idate(1), iswrite = .true.)
-            ENDIF
-         ELSEIF(DEF_NDEP_FREQUENCY==2)THEN! Read Monthly Ndep data
-            IF (jdate(1) /= year_p .or. month /= month_p) THEN
-               CALL update_ndep_data_monthly (jdate(1), month, iswrite = .true.)
-            ENDIF
-         ELSE
-            write(6,*) 'ERROR: DEF_NDEP_FREQUENCY should be only 1-2, Current is:',&
-                        DEF_NDEP_FREQUENCY
-            CALL CoLM_stop ()
-         ENDIF
-
-         IF(DEF_USE_FIRE)THEN
-            IF (jdate(1) /= year_p) THEN
-               CALL update_hdm_data (idate(1))
-            ENDIF
-         ENDIF
-#endif
-
          ! Call CoLM driver
          ! ----------------------------------------------------------------------
          IF (p_is_worker) THEN
             CALL CoLMDRIVER (idate,deltim,dolai,doalb,dosst,oroflag)
          ENDIF
-
-#if (defined CatchLateralFlow)
-         CALL lateral_flow (idate(1), deltim)
-#endif
-
-#if (defined GridRiverLakeFlow)
-         CALL grid_riverlake_flow (idate(1), deltim)
-#endif
-
-#if (defined CaMa_Flood)
-#ifdef USEMPI
-         CALL mpi_barrier (p_comm_glb, p_err)
-#endif
-         CALL colm_CaMa_drv(idate(3)) ! run CaMa-Flood
-#ifdef USEMPI
-         CALL mpi_barrier (p_comm_glb, p_err)
-#endif
-#endif
-
-#ifdef DataAssimilation
-         CALL run_DA (idate, deltim, dolai, doalb, dosst, oroflag)
-#endif
 
          ! Write out the model histroy file
          ! ----------------------------------------------------------------------
@@ -502,39 +278,9 @@ PROGRAM CoLM
 
          ! DO land use and land cover change simulation
          ! ----------------------------------------------------------------------
-#ifdef LULCC
-         IF ( isendofyear(idate, deltim) .and. &
-            ( jdate(1)>=2000 .or. (jdate(1)>1985 .and. MOD(jdate(1),5)==0) ) ) THEN
-
-            ! Deallocate all Forcing and Fluxes variable of last year
-            CALL deallocate_1D_Forcing
-            CALL deallocate_1D_Fluxes
-
-            CALL forcing_final ()
-            CALL hist_final    ()
-
-            ! Call LULCC driver
-            CALL LulccDriver (casename, dir_landdata, dir_restart, jdate, greenwich)
-
-            ! Allocate Forcing and Fluxes variable of next year
-            CALL allocate_1D_Forcing
-            CALL forcing_init (dir_forcing, deltim, itstamp, jdate(1), lulcc_call=.true.)
-
-            CALL hist_init (dir_hist, lulcc_call=.true.)
-            CALL allocate_1D_Fluxes
-         ENDIF
-#endif
 
          ! Get leaf area index
          ! ----------------------------------------------------------------------
-#if (defined DYN_PHENOLOGY)
-         ! Update once a day
-         dolai = .false.
-         Julian_1day = int(calendarday(jdate)-1)/1*1 + 1
-         IF(Julian_1day /= Julian_1day_p)THEN
-            dolai = .true.
-         ENDIF
-#else
          ! READ in Leaf area index and stem area index
          ! ----------------------------------------------------------------------
          ! NOTES: Should be caution for setting DEF_LAI_CHANGE_YEARLY to true in non-LULCC
@@ -549,9 +295,6 @@ PROGRAM CoLM
          IF (DEF_LAI_MONTHLY) THEN
             IF (month /= month_p) THEN
                CALL LAI_readin (lai_year, month, dir_landdata)
-#ifdef URBAN_MODEL
-               CALL UrbanLAI_readin(lai_year, month, dir_landdata)
-#endif
             ENDIF
          ELSE
             ! Update every 8 days (time interval of the MODIS LAI data)
@@ -560,47 +303,17 @@ PROGRAM CoLM
                CALL LAI_readin (jdate(1), Julian_8day, dir_landdata)
             ENDIF
          ENDIF
-#endif
 
          ! Write out the model state variables for restart run
          ! ----------------------------------------------------------------------
          IF (save_to_restart (idate, deltim, itstamp, ptstamp, etstamp)) THEN
-#ifdef LULCC
-            IF (jdate(1) >= 2000) THEN
-               CALL WRITE_TimeVariables (jdate, jdate(1), casename, dir_restart)
-            ELSE
-               CALL WRITE_TimeVariables (jdate, (jdate(1)/5)*5, casename, dir_restart)
-            ENDIF
-#else
             CALL WRITE_TimeVariables (jdate, lc_year,  casename, dir_restart)
-#endif
-
-#if (defined CaMa_Flood)
-#ifdef USEMPI
-            CALL mpi_barrier (p_comm_glb, p_err)
-#endif
-            IF (p_is_master) THEN
-               CALL colm_cama_write_restart (jdate, lc_year,  casename, dir_restart)
-            ENDIF
-#ifdef USEMPI
-            CALL mpi_barrier (p_comm_glb, p_err)
-#endif
-#endif
          ENDIF
-
-#ifdef RangeCheck
-         CALL check_TimeVariables ()
-#endif
 
 #ifdef USEMPI
          CALL mpi_barrier (p_comm_glb, p_err)
 #endif
 
-#ifdef CoLMDEBUG
-         IF (DEF_USE_VariablySaturatedFlow) THEN
-            CALL print_VSF_iteration_stat_info ()
-         ENDIF
-#endif
 
          IF (p_is_master) THEN
             CALL system_clock (end_time, count_rate = c_per_sec)
@@ -625,6 +338,7 @@ PROGRAM CoLM
 
          istep = istep + 1
 
+      itstamp = etstamp
       ENDDO TIMELOOP
 
       CALL deallocate_TimeInvariants ()
@@ -633,32 +347,15 @@ PROGRAM CoLM
       CALL deallocate_1D_Fluxes      ()
       CALL mesh_free_mem             ()
 
-#if (defined CatchLateralFlow)
-      CALL lateral_flow_final ()
-#endif
-#ifdef DataAssimilation
-      CALL end_DA()
-#endif
-
-#if (defined GridRiverLakeFlow)
-      CALL grid_riverlake_flow_final ()
-#endif
-
       CALL forcing_final ()
       CALL hist_final    ()
       CALL CheckEqb_final()
 
-#ifdef SinglePoint
-      CALL single_srfdata_final ()
-#endif
 
 #ifdef USEMPI
       CALL mpi_barrier (p_comm_glb, p_err)
 #endif
 
-#if (defined CaMa_Flood)
-      CALL colm_cama_exit ! finalize CaMa-Flood
-#endif
 
       IF (p_is_master) THEN
          write(*,'(/,A25)') 'CoLM Execution Completed.'

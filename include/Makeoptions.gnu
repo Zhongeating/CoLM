@@ -11,7 +11,7 @@
 
   FOPTS = -O2 -traceback -r8 -Mfreeform -Minfo=accel
 
-  INCLUDE_DIR = -I$(NETCDF_INC)
+  INCLUDE_DIR = -I$(NETCDF_INC) -Iinclude -I.bld
   LDFLAGS = -L$(NETCDF_LIB) -lnetcdff -lnetcdf -llapack -lblas
 
 #============================================================
