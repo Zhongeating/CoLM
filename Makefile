@@ -413,7 +413,7 @@ OBJS_URBAN = \
 	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
 
 OBJS_URBAN_T = $(addprefix .bld/,$(OBJS_URBAN))
-	
+
 .bld/CoLMMAIN_Urban.o: main/URBAN/CoLMMAIN_Urban.F90 ${HEADER} ${OBJS_SHARED_T} ${OBJS_URBAN_T}
 	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
 
@@ -492,10 +492,7 @@ OBJS_MAIN_T = $(addprefix .bld/,$(OBJS_MAIN))
 .bld/CoLMMAIN.o: main/CoLMMAIN.F90 ${HEADER} ${OBJS_SHARED_T} ${OBJS_BASIC_T} ${OBJS_MAIN_T}
 	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
 
-.bld/MOD_CoLMMAIN_CUDA.o: cudamain/MOD_CoLMMAIN_CUDA.F90 ${HEADER} ${OBJS_SHARED_T} ${OBJS_BASIC_T} ${OBJS_MAIN_T}
-	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
-
-.bld/CoLMDRIVER.o: main/CoLMDRIVER.F90 ${HEADER} ${OBJS_SHARED_T} ${OBJS_BASIC_T} ${OBJS_MAIN_T} .bld/CoLMMAIN.o .bld/MOD_CoLMMAIN_CUDA.o
+.bld/CoLMDRIVER.o: main/CoLMDRIVER.F90 ${HEADER} ${OBJS_SHARED_T} ${OBJS_BASIC_T} ${OBJS_MAIN_T} .bld/CoLMMAIN.o
 	${FF} -c ${FOPTS} $(INCLUDE_DIR) -o $@ $< ${MOD_CMD}.bld
 
 .bld/CoLM.o: main/CoLM.F90 ${HEADER} ${OBJS_SHARED_T} ${OBJS_BASIC_T} ${OBJS_MAIN_T} .bld/CoLMDRIVER.o
@@ -503,7 +500,6 @@ OBJS_MAIN_T = $(addprefix .bld/,$(OBJS_MAIN))
 
 OBJS_MAIN += \
 	CoLMMAIN.o \
-	MOD_CoLMMAIN_CUDA.o \
 	CoLMDRIVER.o \
 	CoLM.o
 
