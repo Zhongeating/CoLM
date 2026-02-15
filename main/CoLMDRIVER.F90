@@ -26,6 +26,8 @@ SUBROUTINE CoLMDRIVER (idate,deltim,dolai,doalb,dosst,oro)
    USE MOD_Namelist, only: DEF_forcing, DEF_URBAN_RUN
    USE MOD_Forcing, only: forcmask_pch
    USE omp_lib
+   USE MOD_SPMD_Task
+   USE MOD_CoLMMAIN_CUDA
 
    IMPLICIT NONE
 
@@ -43,7 +45,10 @@ SUBROUTINE CoLMDRIVER (idate,deltim,dolai,doalb,dosst,oro)
    integer  :: i, m, u, k
 
 ! ======================================================================
-
+print *, "id:", p_iam_glb, "numpatch:", numpatch
+CALL init_GPU()
+CALL prefetch_Vars_to_GPU(numpatch)
+CALL sync_GPU()
       DO i = 1, numpatch
 
          ! Apply forcing mask

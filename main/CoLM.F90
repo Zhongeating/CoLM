@@ -267,7 +267,7 @@ PROGRAM CoLM
          ! Call CoLM driver
          ! ----------------------------------------------------------------------
          IF (p_is_worker) THEN
-            CALL CoLMDRIVER (idate,deltim,dolai,doalb,dosst,oroflag)
+            CALL CoLMDRIVER (idate,deltim,dolai,doalb,dosst,oro)
          ENDIF
 
          ! Write out the model histroy file

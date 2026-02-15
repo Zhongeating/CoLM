@@ -76,7 +76,7 @@ MODULE MOD_Vars_1DFluxes
 
    real(r8), allocatable :: qcharge(:) !groundwater recharge [mm/s]
 
-   real(r8), allocatable :: oroflag(:) !/ocean(0)/seaice(2) flag
+   real(r8), allocatable :: oro(:) !/ocean(0)/seaice(2) flag
 
    integer, parameter :: nsensor = 1
    real(r8), allocatable :: sensors(:,:)
@@ -157,7 +157,7 @@ CONTAINS
 
             allocate ( qcharge(numpatch) )  ; qcharge(:) = spval ! groundwater recharge [mm/s]
 
-            allocate ( oroflag(numpatch) )  ; oroflag(:) = 1.0   ! /ocean(0)/seaice(2) flag
+            allocate ( oro(numpatch) )  ; oro(:) = 1.0   ! /ocean(0)/seaice(2) flag
 
             allocate ( sensors(nsensor,numpatch) ); sensors(:,:) = spval !
 
@@ -246,7 +246,7 @@ CONTAINS
 
             deallocate ( qcharge )  ! groundwater recharge [mm/s]
 
-            deallocate ( oroflag )  !
+            deallocate ( oro )  !
 
             deallocate ( sensors )  !
 
